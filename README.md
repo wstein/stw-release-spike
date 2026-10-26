@@ -1,2 +1,7 @@
 # stw-release-spike
-Throwaway spike repo to rehearse the stw release flow (not a product; delete after the test)
+
+THROWAWAY repository. It rehearses the `stw release` flow of SourceSteward on a tiny Go CLI
+(`spike`). It is not a product, carries no support and is deleted after the test.
+
+    go run ./cmd/spike hello
+    go run ./cmd/spike version
