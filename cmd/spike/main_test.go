@@ -14,6 +14,7 @@ func TestRun(t *testing.T) {
 		code int
 	}{
 		{[]string{"hello"}, "hello from spike\n", 0},
+		{[]string{"hello", "--name", "Ada"}, "hello, Ada\n", 0},
 		{[]string{"version"}, "spike dev\n", 0},
 	}
 	for _, c := range cases {
