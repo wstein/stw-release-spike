@@ -25,6 +25,10 @@ func run(args []string, stdout, stderr io.Writer) int {
 	case "version":
 		fmt.Fprintf(stdout, "spike %s\n", version)
 	case "hello":
+		if len(args) == 3 && args[1] == "--name" {
+			fmt.Fprintf(stdout, "hello, %s\n", args[2])
+			break
+		}
 		fmt.Fprintln(stdout, "hello from spike")
 	default:
 		fmt.Fprintf(stderr, "spike: unknown command %q\n", args[0])
