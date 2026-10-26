@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strings"
 )
 
 // version is stamped at build time with -ldflags "-X main.version=vX.Y.Z".
@@ -25,6 +26,10 @@ func run(args []string, stdout, stderr io.Writer) int {
 	case "version":
 		fmt.Fprintf(stdout, "spike %s\n", version)
 	case "hello":
+		if len(args) == 4 && args[1] == "--name" && args[3] == "--shout" {
+			fmt.Fprintf(stdout, "%s\n", strings.ToUpper("hello, "+args[2]))
+			break
+		}
 		if len(args) == 3 && args[1] == "--name" {
 			fmt.Fprintf(stdout, "hello, %s\n", args[2])
 			break
